@@ -1,4 +1,4 @@
-package receivetweets
+package mytrigger
 
 import (
 	"context"
@@ -98,16 +98,6 @@ func (t *TwitterTrigger) Start() error {
 				log.Info("Received Tweet", twt.IdStr, twt.User.ScreenName, twt.Text)
 				t.RunHandler(handler, twt.IdStr, twt.User.ScreenName, twt.Text)
 			}
-
-			// ticker := time.NewTicker(60 * time.Second)
-			// go func() {
-			// 	for te := range ticker.C {
-			// 		s := time.Now().String()
-			// 		fmt.Println(te.Hour())
-			// 		t.RunHandler(handler, s)
-			// 	}
-
-			//	}()
 
 			log.Debugf("topic: [%s]", topic)
 

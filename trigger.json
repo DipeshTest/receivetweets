@@ -1,65 +1,56 @@
 {
-  "name": "twitter-listener",
-  "type": "flogo:trigger",
-  "ref": "github.com/DipeshTest/receivetweets",
-  "version": "0.0.1",
-  "title": "Twitter Stream Listener",
-  "author": "AllStars",
-  "description": "Simple Twitter Stream Listner",
-  "settings":[
-    {
-      "name": "apiKey",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "apiSecret",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "accessToken",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "accessTokenSecret",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "stream",
-      "type": "string",
-      "allowed": [
-          "user",
-          "public"
-        ],
-  "value": "user",
-        "required": true
-    }
-
-  ],
-  "output": [
-    {
-      "name": "tweetId",
-      "type": "string"
-    },
-    {
-      "name": "screenName",
-      "type": "string"
-    },
-    {
-      "name": "message",
-      "type": "string"
-    }
-  ],
-  "handler": {
-    "settings": [
-      {
-        "name": "searchString",
-        "type": "string",
-        "required": true
-      }
-    ]
-  }
+	"name": "twitter-listener",
+	"type": "flogo:trigger",
+	"ref": "github.com/DipeshTest/receivetweets",
+	"version": "0.0.1",
+	"title": "Twitter Stream Listener",
+	"author": "AllStars",
+	"description": "Simple Twitter Stream Listner",
+	"settings": [{
+		"name": "apiKey",
+		"type": "string",
+		"required": true
+	},
+	{
+		"name": "apiSecret",
+		"type": "string",
+		"required": true
+	},
+	{
+		"name": "accessToken",
+		"type": "string",
+		"required": true
+	},
+	{
+		"name": "accessTokenSecret",
+		"type": "string",
+		"required": true
+	},
+	{
+		"name": "stream",
+		"type": "string",
+		"allowed": ["user",
+		"public"],
+		"value": "user",
+		"required": true
+	}],
+	"output": [{
+		"name": "tweetId",
+		"type": "string"
+	},
+	{
+		"name": "screenName",
+		"type": "string"
+	},
+	{
+		"name": "message",
+		"type": "string"
+	}],
+	"handler": {
+		"settings": [{
+			"name": "searchString",
+			"type": "string",
+			"required": true
+		}]
+	}
 }

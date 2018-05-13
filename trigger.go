@@ -14,6 +14,8 @@ import (
 // log is the default package logger
 var log = logger.GetLogger("trigger-twitter-listner")
 
+var stream anaconda.Stream
+
 // TwitterTrigger is simple  trigger
 type TwitterTrigger struct {
 	metadata       *trigger.Metadata
@@ -64,7 +66,7 @@ func (t *TwitterTrigger) Start() error {
 
 	if len(apiKey) == 0 || len(apiSecret) == 0 || len(accessToken) == 0 || len(accessTokenSecret) == 0 || len(stream) == 0 || len(searchString) == 0 {
 		log.Info("Please check the input parameters")
-		panic("Please check the input parameters")
+
 		return errors.New("Please check the input parameters")
 	} else {
 
@@ -91,6 +93,12 @@ func (t *TwitterTrigger) Start() error {
 
 			stream := api.PublicStreamFilter(filter)
 
+			if stream == nil {
+				log.Info("Please check the input parameters")
+				return errors.New("Please check the input parameters")
+
+			}
+
 			defer stream.Stop()
 
 			for v := range stream.C {
@@ -111,7 +119,9 @@ func (t *TwitterTrigger) Start() error {
 // Stop implements ext.Trigger.Stop
 func (t *TwitterTrigger) Stop() error {
 	//unsubscribe from topic
-
+	log.Info("Stopping Stream")
+	stream.Stop()
+	log.Info("Stream Stopped")
 	return nil
 }
 

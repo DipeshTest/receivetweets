@@ -1,4 +1,4 @@
-package mytrigger
+package receivetweets
 
 import (
 	"context"

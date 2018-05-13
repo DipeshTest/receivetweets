@@ -4,7 +4,8 @@ weight: 1
 ---
 
 # Twitter Listener
-This trigger activity provides your flogo application the ability to start when anyone tweets with searchString provided by user or receives tweets from particular user.This activity is developed by FLOGO AllStars team.
+This actvity acts as a FLOGO Trigger, it provides your flogo application the ability to start listening to tweets with a particular searchString provided by user or receives tweets from a Twitter user. 
+This activity is developed by Team AllStars.
 ## Installation
 ### Flogo CLI
 ```bash
